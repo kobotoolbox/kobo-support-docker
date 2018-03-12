@@ -1,4 +1,6 @@
-This repository contains a `docker-compose.yml` with a NginX container only.
+This repository contains a `docker-compose.yml` with a NginX container only,
+intended to be run behind another nginx. See `mother-nginx.conf` for an example
+configuration that could be included in the outward-facing nginx.
  
 Its main goal is to redirect old `http://support.kobotoolbox.org` links to their `http://help.kobotoolbox.org` counterparts.
 
