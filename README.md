@@ -1,11 +1,32 @@
-This repository contains a `docker-compose.yml` with a NginX container only,
-intended to be run behind another nginx. See `mother-nginx.conf` for an example
-configuration that could be included in the outward-facing nginx.
- 
-Its main goal is to redirect old `http://support.kobotoolbox.org` links to their `http://help.kobotoolbox.org` counterparts.
+# kobo-support-docker
 
-All redirections rules are configured in `files/redirections.conf`. 
+This repository handles redirection and reverse proxying for our
+support-related websites.
 
-#### Important
-All rules must be declared above the last one. The last one is the fallback.  
-If no rules match, user is redirected to `http://help.kobotoolbox.org` root.
+* support.kobotoolbox.org:
+    1. If the request path matches something in `files/redirections.conf`,
+       then the request is redirected;
+    1. The request is reverse-proxied to https://kobotoolbox.github.io, which
+       is our documentation website.
+* help.kobotoolbox.org:
+    1. Requests to the base hostname are now redirected to the Discourse forum,
+       https://community.kobotoolbox.org;
+    1. Requests for anything else are redirected to
+       https://support.kobotoolbox.org.
+* forum.kobotoolbox.org: this was the very short-lived original hostname for
+    our Discourse forum. This redirect could probably be removed, but for
+    now, it steers people to https://community.kobotoolbox.org.
+
+## How to use
+
+After making any modifications to the redirect rules or other NGINX
+configuration settings, build a new Docker image and push it to Docker Hub. Use
+the tag `kobotoolbox/kobo-support-docker`:
+```
+docker build -t kobotoolbox/kobo-support-docker .
+```
+Once the build completes, push it to Docker Hub:
+```
+docker push kobotoolbox/kobo-support-docker
+```
+The new image can now be used with cloud container services such as AWS ECS.
