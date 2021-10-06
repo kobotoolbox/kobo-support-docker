@@ -17,6 +17,13 @@ support-related websites.
     our Discourse forum. This redirect could probably be removed, but for
     now, it steers people to https://community.kobotoolbox.org.
 
+
+This handles also redirection for kobotoolbox.org secondary domain names.
+
+* kobo.ngo:
+    1. Requests to the base hostname and `www` sub-domain are redirected to
+       https://www.kobotoolbox.org;
+
 ## How to use
 
 After making any modifications to the redirect rules or other NGINX
