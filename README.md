@@ -23,6 +23,9 @@ This handles also redirection for kobotoolbox.org secondary domain names.
 * kobo.ngo:
     1. Requests to the base hostname and `www` sub-domain are redirected to
        https://www.kobotoolbox.org;
+* kobo.ong:
+    1. Requests to the base hostname and `www` sub-domain are redirected to
+       https://www.kobotoolbox.org;
 
 ## How to use
 
