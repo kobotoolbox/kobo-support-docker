@@ -18,8 +18,12 @@ support-related websites.
     now, it steers people to https://community.kobotoolbox.org.
 
 
-This handles also redirection for kobotoolbox.org secondary domain names.
+This also handles redirection for the "apex" kobotoolbox.org domain and
+secondary domain names:
 
+* kobotoolbox.org:
+    1. Requests to https://kobotoolbox.org/anything are redirected to
+       https://www.kobotoolbox.org/anything;
 * kobo.ngo:
     1. Requests to the base hostname and `www` sub-domain are redirected to
        https://www.kobotoolbox.org;
