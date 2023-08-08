@@ -30,6 +30,9 @@ secondary domain names:
 * kobo.ong:
     1. Requests to the base hostname and `www` sub-domain are redirected to
        https://www.kobotoolbox.org;
+* eu.kobotoolbox.org:
+    1. Requests to the base hostname are redirected to
+       https://kobo.humanitarianresponse.info;
 
 ## How to use
 
