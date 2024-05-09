@@ -47,3 +47,16 @@ Once the build completes, push it to Docker Hub:
 docker push kobotoolbox/kobo-support-docker
 ```
 The new image can now be used with cloud container services such as AWS ECS.
+
+### AWS Elastic Container Service (ECS)
+
+To update this service running on ECS:
+1. Build and push a new Docker image as described above;
+1. Go to the ECS "Task definitions", currently at https://us-east-1.console.aws.amazon.com/ecs/v2/task-definitions;
+1. Select the latest revision and then click "Create new revision";
+1. Verify that "Image URI" is "kobotoolbox/kobo-support-docker:latest";
+1. Scroll all the way down and click "Create";
+1. You should now be viewing the new revision.
+1. Click "Deploy" and choose "Update service";
+1. Verify that "Cluster" is "support-redirector-cluster" and "Service" is "support-redirector-service";
+1. Scroll all the way down and hit "Update"!
